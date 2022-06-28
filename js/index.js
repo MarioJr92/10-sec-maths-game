@@ -1,6 +1,19 @@
 $(document).ready(function () {
   var currentQuestion;
+  var interval;
   var timeLeft = 10;
+
+  var startGame = function () {
+    if (!interval) {
+      interval = setInterval(function () {
+        updateTimeLeft(-1);
+        if (timeLeft === 0) {
+          clearInterval(interval);
+          interval = undefined;
+        }
+      }, 1000);
+    }
+  }
 
   var randomNumberGenerator = function (size) {
     return Math.ceil(Math.random() * size);
@@ -36,16 +49,9 @@ $(document).ready(function () {
   };
 
   $('#user-input').on('keyup', function () {
-    checkAnswer(Number($(this).val()), currentQuestion.answer)
+    startGame();
+    checkAnswer(Number($(this).val()), currentQuestion.answer);
   });
-
-  var interval = setInterval(function () {
-    updateTimeLeft(-1);
-
-    if (timeLeft === 0) {
-      clearInterval(interval);
-    }
-  }, 1000);
 
   renderNewQuestion();
 });
