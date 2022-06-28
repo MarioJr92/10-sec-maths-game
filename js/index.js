@@ -54,6 +54,7 @@ $(document).ready(function () {
       renderNewQuestion();
       $('#user-input').val('');
       updateTimeLeft(+1);
+      updateScore(+1);
     }
   };
 
