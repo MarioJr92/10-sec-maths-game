@@ -9,3 +9,10 @@ body {
 h2 {
   font-family: 'Lobster', cursive;
 }
+
+#user-input {
+  color: #000;
+  font-weight: bold;
+  width: 250px;
+  margin-bottom: 20px;
+}
