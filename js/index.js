@@ -5,6 +5,9 @@ $(document).ready(function () {
 
   var startGame = function () {
     if (!interval) {
+      if (timeLeft === 0) {
+        updateTimeLeft(10);
+      }
       interval = setInterval(function () {
         updateTimeLeft(-1);
         if (timeLeft === 0) {
