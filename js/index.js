@@ -2,6 +2,7 @@ $(document).ready(function () {
   var currentQuestion;
   var interval;
   var timeLeft = 10;
+  var score = 0;
 
   var startGame = function () {
     if (!interval) {
@@ -32,6 +33,11 @@ $(document).ready(function () {
 
     return question;
   };
+
+  var updateScore = function (amount) {
+    score += amount;
+    $('#score').text(score);
+  }
 
   var updateTimeLeft = function (amount) {
     timeLeft += amount;
