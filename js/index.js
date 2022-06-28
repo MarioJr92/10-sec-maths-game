@@ -8,6 +8,7 @@ $(document).ready(function () {
     if (!interval) {
       if (timeLeft === 0) {
         updateTimeLeft(10);
+        updateScore(-score);
       }
       interval = setInterval(function () {
         updateTimeLeft(-1);
